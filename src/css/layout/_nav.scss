@@ -1,0 +1,108 @@
+/*     
+    Name: _nav.scss    
+    Author: Zakaria El Khachia
+    Client:
+*/
+
+/* Nav Toggle */
+
+.burger-menu {
+  position: absolute;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -15px);
+  z-index: 2;
+  display: none;
+
+  @media #{$max-tablet} {
+  }
+
+  @media #{$max-phone} {
+    width: 25px;
+    height: 25px;
+  }
+
+  span {
+    // width: 0%;
+    width: 100%;
+    // background-color: $colSec;
+    height: 2px;
+    display: block;
+    position: absolute;
+    transition: all 0.25s ease-out;
+    transform-origin: right;
+
+    &:nth-child(2) {
+      width: 80%;
+      top: 11px;
+    }
+
+    &:nth-child(3) {
+      width: 60%;
+      bottom: 0;
+    }
+  }
+
+  &.open {
+    z-index: 2;
+    span {
+      width: 100% !important;
+      transform-origin: right;
+      // background-color: color(sec);
+      transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      &:nth-child(1) {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        margin-top: 0;
+        bottom: 1px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &:hover {
+    span:nth-child(2),
+    span:nth-child(3) {
+      width: 100% !important;
+    }
+  }
+}
+
+/* Nav Menu */
+
+.nav-wrapper {
+  @media #{$max-phone} {
+    right: 2rem;
+  }
+
+  .nav-container {
+    .nav-menu {
+      a {
+        text-transform: lowercase;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0.1rem 0.5rem;
+        z-index: 30;
+
+        &:hover {
+          color: $white;
+
+          &:before {
+            transform: translate3d(0%, 0, 0);
+          }
+        }
+      }
+    }
+  }
+}

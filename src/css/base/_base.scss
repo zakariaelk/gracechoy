@@ -1,0 +1,72 @@
+/*     
+    Name: _base.scss    
+    Author: Zakaria El Khachia
+    Client: Grace Choy
+*/
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  @include size(100%, 100%);
+  @extend .size-6;
+  font-family: $FontLight;
+  font-weight: normal;
+  line-height: auto;
+  // text-transform: lowercase;
+}
+
+/**
+ * Basic styles for Main
+ */
+
+header,
+main,
+footer {
+  width: 100%;
+}
+
+/* Anchor */
+
+a {
+  text-decoration: none;
+  font-family: $FontBold;
+  color: $black;
+  transition: 0.25s ease;
+
+  &:hover {
+    opacity: 1 !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: lowercase;
+  font-family: $FontBold;
+}
+
+h3 {
+  line-height: 1.4;
+}

@@ -1,0 +1,83 @@
+/*     
+    Name: _typo.scss    
+    Author: Zakaria El Khachia
+    Client: Grace Choy
+*/
+
+/* Font Name */
+
+@font-face {
+  font-family: "Helvetica-Neue-Light";
+  src: url("../../src/fonts/helvetica/HelveticaNeueLight.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Helvetica-Neue-Medium";
+  src: url("../../src/fonts/helvetica/HelveticaNeueMedium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Helvetica-Neue-Bold";
+  src: url("../../src/fonts/helvetica/HelveticaNeueBold.woff") format("woff");
+}
+
+/* Responsive font sizes */
+
+.size-1 {
+  @include fluid-font-size(64px, 136px);
+}
+
+.size-2 {
+  @include fluid-font-size(36px, 56px);
+}
+
+.size-3 {
+  @include fluid-font-size(28px, 36px);
+}
+
+.size-4 {
+  @include fluid-font-size(20px, 24px);
+}
+
+.size-5 {
+  @include fluid-font-size(17px, 19px);
+}
+
+.size-6 {
+  @include fluid-font-size(14px, 16px);
+}
+
+.size-7 {
+  @include fluid-font-size(12px, 14px);
+}
+
+@media #{$max-laptop} {
+  .size-1 {
+    @include fluid-font-size(56px, 68px);
+  }
+
+  .size-2 {
+    @include fluid-font-size(36px, 50px);
+  }
+
+  .size-3 {
+    @include fluid-font-size(24px, 32px);
+  }
+}
+
+@media #{$max-tablet} {
+  .size-1 {
+    @include fluid-font-size(36px, 48px);
+  }
+
+  .size-2 {
+    @include fluid-font-size(26px, 36px);
+  }
+
+  .size-3 {
+    @include fluid-font-size(20px, 26px);
+  }
+}
+
+@media #{$max-phone} {
+}

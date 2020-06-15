@@ -1,0 +1,28 @@
+/*     
+    Name: _footer.scss    
+    Author: Zakaria El Khachia
+    Client:
+*/
+
+footer {
+  width: 100%;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: -120px;
+
+  .copyright {
+    text-align: left;
+  }
+
+  .logo-footer {
+    width: 100px;
+
+    img {
+      width: 100%;
+      margin-bottom: 0px;
+    }
+  }
+}

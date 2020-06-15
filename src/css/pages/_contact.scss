@@ -1,0 +1,103 @@
+/*     
+    Name: _contact.scss    
+    Author: Zakaria El Khachia
+    Client:
+*/
+
+#contact {
+  position: relative;
+  padding-bottom: 0px;
+
+  .boxed {
+    .contact-info {
+      margin-bottom: 140px;
+      h2 {
+        @extend .size-2;
+        margin-bottom: 4rem;
+      }
+
+      .info {
+        margin-left: 0.5rem;
+        a {
+          margin-bottom: 1rem;
+          display: block;
+          font-family: $FontLight;
+          font-weight: normal;
+
+          &:before {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            width: 20px;
+            height: 20px;
+            margin-right: 1rem;
+            background-size: 100%;
+            background-repeat: no-repeat;
+          }
+          &.email {
+            &:before {
+              background-image: url("../img/svg/email.svg");
+            }
+          }
+
+          &.phone {
+            &:before {
+              background-image: url("../img/svg/phone.svg");
+            }
+          }
+        }
+      }
+    }
+
+    .bottom-navigation {
+      max-width: 600px;
+      margin: 0;
+
+      .navigation-container {
+        ul li {
+          @extend .size-5;
+          margin-bottom: 1rem;
+
+          &:last-child {
+            margin-bottom: 0rem;
+          }
+          a {
+            color: $black;
+            animation: none ease-in-out;
+            position: relative;
+            text-transform: lowercase;
+
+            &:before {
+              content: attr(data-label);
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 0%;
+              overflow: hidden;
+              white-space: nowrap;
+              color: $red;
+              transition: width 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+            }
+
+            &:hover {
+              &:before {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*glow for webkit*/
+
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #111111, 0 0 35px #111111, 0 0 40px #111111, 0 0 50px #111111, 0 0 75px #111111;
+  }
+  to {
+    text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 7px #fff, 0 0 10px #111111, 0 0 17px #000000, 0 0 20px #111111, 0 0 25px #111111, 0 0 35px #111111;
+  }
+}

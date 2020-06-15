@@ -1,0 +1,289 @@
+/*     
+    Name: _slider.scss    
+    Author: Zakaria El Khachia
+    Client:
+*/
+
+/* Classic Slider */
+
+.slider-container {
+  width: 100%;
+  height: 100%;
+  max-width: 1440px;
+  margin: auto;
+  padding-bottom: 50%;
+  position: relative;
+  // overflow: hidden;
+
+  @media #{$max-laptop} {
+    padding-bottom: 60%;
+  }
+
+  .slider-overlay {
+    @include size(100%, 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.1;
+    z-index: 1;
+  }
+
+  .slider {
+    @include size(100%, 85%);
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+    list-style: none;
+    transition: 0.5s transform cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .more-link {
+    margin-top: 1rem;
+    display: inline-block;
+    position: absolute;
+    bottom: 3rem;
+    right: 0;
+
+    &:after {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      background-image: url("../img/svg/chevron-min.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 15px;
+      height: 15px;
+      margin-left: 0.5rem;
+      transform: scale3d(1, 1, 1);
+      transition: $t-all;
+    }
+
+    &:hover {
+      &:after {
+        transform: scale3d(1.2, 1.2, 1.2);
+      }
+    }
+  }
+}
+
+.slide {
+  @include size(100%, 100%);
+  display: block;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  &.current-slide {
+    z-index: 1;
+    .slide-txt {
+      opacity: 1;
+    }
+
+    .slide-visual {
+      .mask {
+        width: 0%;
+      }
+    }
+  }
+}
+
+.slide-content {
+  @include size(100%, 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-txt {
+  position: relative;
+  overflow: hidden;
+  background-color: $white;
+  color: $black;
+  height: 100%;
+  opacity: 0;
+  transition: $t-all;
+  // transform: translateX(-70px);
+  // transition: 0.5s transform cubic-bezier(0.32, 1.01, 0.35, 1.01), 0.2s opacity 0.1s;
+  will-change: transform;
+
+  .slide-txt-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    // max-width: 400px;
+    transform: translateY(-60%);
+  }
+
+  .indicator {
+    @extend .size-7;
+    font-family: $FontBold;
+  }
+
+  .title {
+    @extend .size-2;
+    font-family: $FontBold;
+    padding-right: 1rem;
+  }
+
+  .category {
+    @extend .size-6;
+    font-family: $FontLight;
+    color: $gray;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: $black;
+      margin: 1.5rem 0;
+    }
+  }
+  .desc {
+    @extend .size-6;
+    font-family: $FontLight;
+    padding-right: 1rem;
+    max-width: 350px;
+  }
+}
+
+.slide-visual {
+  position: relative;
+  height: 100%;
+  // opacity: 0;
+  transition: $t-all;
+  overflow: hidden;
+  img {
+    width: 100%;
+    position: relative;
+  }
+
+  .mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    // transform: translateX(-100%);
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+}
+
+.slider-nav {
+  position: absolute;
+  display: block;
+  text-align: left;
+  bottom: 20%;
+  z-index: 10;
+
+  @media #{$max-tablet} {
+    // bottom: -30px;
+    // right: 50%;
+    // transform: translateX(30px);
+  }
+
+  button {
+    background-image: url("../img/svg/chevron-min-w.svg");
+    background-size: 18px;
+    background-position: 55% 50%;
+    background-repeat: no-repeat;
+    border: 1px solid $black;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 2;
+    transition: all cubic-bezier(0.645, 0.045, 0.355, 1) 0.25s;
+    outline: none;
+
+    &:hover {
+      background-color: $white;
+      background-image: url("../img/svg/chevron-min.svg");
+    }
+
+    @media #{$max-tablet} {
+      background-size: 15px;
+      width: 40px;
+      height: 40px;
+    }
+
+    @media #{$max-phone} {
+      background-size: 10px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .__prev {
+    transform: rotate(-180deg);
+    background-color: $black;
+  }
+  .__next {
+    background-color: $black;
+  }
+
+  .is-off {
+    background-color: $white;
+    background-image: url("../img/svg/chevron-min.svg");
+  }
+}
+
+/* Auto Moving Slider */
+
+.moving-slider {
+  @include size(90%, 100%);
+  position: relative;
+  margin-right: -70px;
+  float: right;
+
+  @media #{$max-laptop} {
+    @include size(100%, 100%);
+  }
+
+  @media #{$max-tablet} {
+    float: none;
+    margin: auto;
+  }
+
+  .slider-content {
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+
+    @media #{$max-laptop} {
+      height: 60vh;
+    }
+
+    @media #{$max-tablet} {
+      height: 40vh;
+    }
+
+    @media #{$max-phone} {
+      height: 35vh;
+      max-height: 300px;
+    }
+
+    .slide {
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100%;
+      left: -5em;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      transition: opacity 750ms linear, transform 5s 0.75s linear;
+      will-change: opacity, transform;
+      width: calc(100% + 7em);
+
+      &.displayed {
+        opacity: 1;
+        transform: translate(5em, 0);
+        transition: opacity 750ms linear, transform 15s linear;
+      }
+    }
+  }
+}

@@ -1,0 +1,312 @@
+/*     
+    Name: _home.scss    
+    Author: Zakaria El Khachia
+    Client: Grace Choy
+*/
+
+#home {
+  .side-visual {
+    position: fixed;
+    width: 300px;
+    height: 200px;
+    right: 100px;
+    top: 30%;
+    z-index: 5;
+    opacity: 0.6;
+    transform: translateY(-30%);
+    transition: all 0.5s ease;
+    display: none;
+
+    @media #{$max-laptop} {
+      right: 40px;
+      top: 25%;
+      transform: scale(0.8);
+    }
+
+    @media #{$max-tablet} {
+      right: -50px;
+      top: 70%;
+      transform: scale(0.5) translateY(-70%);
+    }
+    canvas {
+      height: 100%;
+      display: block;
+    }
+
+    &.scrolled {
+      top: 40%;
+      right: -80px;
+      transform: scale(0.4) translateY(-40%);
+    }
+  }
+}
+
+#home-welcome {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  padding-top: 0px;
+  padding-bottom: 0px;
+
+  .welcome-content {
+    @include size(100%, 100%);
+    position: relative;
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+    @media #{$max-phone} {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .mission-statement {
+      @include size(55%, 100%);
+      max-width: 991px;
+      display: table;
+      padding-left: 0rem;
+
+      @media #{$max-laptop} {
+        @include size(60%, 100%);
+        padding-left: 0rem;
+      }
+
+      @media #{$max-tablet} {
+        @include size(100%, 100%);
+        padding-left: 0;
+      }
+
+      .text {
+        width: 100%;
+        display: table-cell;
+        vertical-align: middle;
+        line-height: 1.1;
+        padding-top: 60px;
+
+        @media #{$max-laptop} {
+          line-height: 1.1;
+        }
+
+        @media #{$max-tablet} {
+          padding-top: 0px;
+        }
+
+        p {
+          @extend .size-1;
+          display: inline;
+          margin: 0;
+
+          @media #{$max-laptop} {
+            font-size: 7rem;
+          }
+
+          @media #{$max-tablet} {
+            font-size: 7rem;
+          }
+
+          @media #{$max-phone} {
+            font-size: 5rem;
+          }
+        }
+
+        p:nth-child(2) {
+          position: relative;
+        }
+
+        .word {
+          position: absolute;
+          width: 500px;
+          margin-left: 2rem;
+          margin-top: -0.8rem;
+          opacity: 0;
+          text-transform: lowercase;
+          font-family: $FontBold;
+
+          @media #{$max-laptop} {
+            margin-top: -0.7rem;
+          }
+
+          @media #{$max-tablet} {
+            margin-top: -0.7rem;
+            margin-left: 1.5rem;
+          }
+
+          @media #{$max-phone} {
+            margin-top: -0.3rem;
+            margin-left: 1rem;
+          }
+        }
+
+        .letter {
+          display: inline-block;
+          position: relative;
+          transform: translateZ(25px);
+          transform-origin: 50% 50% 25px;
+        }
+
+        .letter.out {
+          transform: rotateX(90deg);
+          transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+
+        .letter.behind {
+          transform: rotateX(-90deg);
+        }
+
+        .letter.in {
+          transform: rotateX(0deg);
+          transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        // .wisteria {
+        //   color: #8e44ad;
+        // }
+
+        // .belize {
+        //   color: #2980b9;
+        // }
+
+        // .pomegranate {
+        //   color: #c0392b;
+        // }
+
+        // .green {
+        //   color: #16a085;
+        // }
+
+        // .midnight {
+        //   color: #2c3e50;
+        // }
+      }
+
+      .scroll-bottom {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: auto;
+        display: block;
+        text-align: center;
+
+        .scroll-label {
+          margin-bottom: 6px;
+          text-transform: uppercase;
+        }
+
+        .scroll-txt {
+          @extend .size-7;
+          font-family: $FontLight;
+        }
+      }
+    }
+  }
+}
+
+#home-work {
+}
+
+#home-textpath {
+  padding-bottom: 0;
+  padding-top: 0;
+
+  .text-container {
+    padding: 70px 0;
+
+    path {
+    }
+
+    text {
+      @extend .size-2;
+      font-family: $FontBold;
+    }
+  }
+
+  .middle-eye {
+    .eye-border {
+      width: 100%;
+      height: 4px;
+    }
+  }
+}
+
+/* About Section  */
+
+#home-about {
+  .boxed {
+    max-width: 1140px;
+  }
+
+  .about-intro {
+    @extend .size-3;
+    margin-bottom: 4rem;
+    max-width: 900px;
+    line-height: 1.3;
+  }
+
+  .scratch-module {
+    position: relative;
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+
+    .scratch-label {
+      width: 2.2rem;
+      height: 100%;
+      img {
+        width: 100%;
+      }
+    }
+    .canvasContainer {
+      margin-left: 30px;
+      max-width: 750px;
+      height: 100%;
+      position: relative;
+
+      #scratcher {
+        @include size(100%, 100%);
+        background-image: url("../img/jpg/project-04.jpg");
+        cursor: crosshair;
+        cursor: url(../img/svg/hand.svg) 60 60, crosshair;
+      }
+
+      .cursor-object {
+        display: block;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: vibrate 1s infinite forwards;
+
+        &.off {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+#bridge {
+  display: block;
+  margin: 0 auto;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/calgary-bridge-1943.jpg");
+  background-image: -webkit-image-set(
+    url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/calgary-bridge-1943.jpg") 1x,
+    url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/calgary-bridge-1943-2x.jpg") 2x
+  );
+  background-size: cover;
+  width: 100%;
+  max-width: 750px;
+  height: auto;
+  cursor: crosshair;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/circular-cursor.png) 53 53, crosshair;
+}
+
+#bridgeContainer {
+  text-align: center;
+  font-family: Avenir, sans-serif;
+}
+
+#bridgeContainer figcaption {
+  margin-top: 2rem;
+}

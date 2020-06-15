@@ -1,0 +1,284 @@
+/*     
+    Name: _work.scss    
+    Author: Zakaria El Khachia
+    Client: Grace Choy
+*/
+
+#work {
+  #work-intro {
+    padding-top: 80px;
+    padding-bottom: 140px;
+
+    @media #{$max-tablet} {
+      padding-bottom: 80px;
+    }
+
+    .boxed {
+      max-width: 1140px;
+      width: 80%;
+    }
+
+    .intro-txt {
+      @extend .size-2;
+      line-height: 1.3;
+    }
+
+    .scroll-bottom {
+      margin: auto;
+      display: block;
+      text-align: right;
+      padding-right: 3rem;
+
+      .scroll-label {
+        margin-bottom: 6px;
+        text-transform: uppercase;
+      }
+
+      .scroll-txt {
+        @extend .size-7;
+        font-family: $FontLight;
+      }
+    }
+  }
+
+  #work-grid {
+    .boxed {
+    }
+
+    .project-item {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      position: relative;
+      overflow: hidden;
+      max-width: 1140px;
+      display: flex;
+      flex-direction: row;
+      margin: 0 auto 15rem;
+      opacity: 0;
+      transform: translate3d(-100px, 0, 0);
+      transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+      //   &:first-child {
+      //     opacity: 1;
+      //     transform: translate3d(0, 0, 0);
+      //   }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .project-txt {
+        position: relative;
+        max-width: 600px;
+        background-color: $white;
+        color: $black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // height: 100%;
+
+        will-change: transform;
+
+        .project-txt-content {
+          //   position: absolute;
+          //   top: 15vh;
+
+          &:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+          }
+        }
+
+        .title {
+          @extend .size-2;
+          font-family: $FontBold;
+          line-height: 1;
+          margin-bottom: 2rem;
+        }
+
+        .category {
+          @extend .size-6;
+          font-family: $FontLight;
+          color: $gray;
+
+          &:after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 1px;
+            background: $black;
+            margin: 1.5rem 0;
+            transition: all 0.6s ease-out 0.3s;
+          }
+        }
+        .desc {
+          @extend .size-5;
+          font-family: $FontLight;
+          max-width: 350px;
+        }
+
+        .more-link {
+          position: relative;
+          margin-top: 2rem;
+          transform: translate3d(0, 0, 0);
+          transition: $t-all;
+
+          &:after {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            background-image: url("../img/svg/chevron-min.svg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 15px;
+            height: 15px;
+            margin-left: 0.2rem;
+          }
+
+          &:hover {
+            transform: translate3d(6px, 0, 0);
+          }
+        }
+      }
+
+      .project-visual {
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        transition: $t-all;
+        overflow: hidden;
+
+        .mask {
+          &:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: translate3d(0, 0, 0);
+          }
+        }
+
+        img {
+          width: 100%;
+          max-width: 600px;
+          position: relative;
+        }
+      }
+
+      &.l-side {
+        .project-txt {
+          .project-txt-content {
+            right: 0;
+
+            &:after {
+              transition-delay: 0s;
+            }
+
+            .title,
+            .category,
+            .desc {
+              padding-right: 3rem;
+            }
+
+            .category:after {
+              width: calc(100% + 3rem);
+              margin: 1.5rem 0;
+            }
+          }
+        }
+
+        .project-visual {
+          .mask {
+            display: inline-block;
+            &:after {
+              transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+          }
+        }
+      }
+
+      &.r-side {
+        .project-txt {
+          .project-txt-content {
+            left: 0;
+
+            &:after {
+              //   transition-delay: 0.5s;
+            }
+
+            .title,
+            .category,
+            .desc,
+            .more-link {
+              padding-left: 3rem;
+            }
+
+            .category:after {
+              width: 0;
+              margin: 1.5rem 0rem 1.5rem -3rem;
+            }
+          }
+        }
+
+        .project-visual {
+          img {
+            float: right;
+          }
+
+          .mask {
+            &:after {
+              transition: transform 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+          }
+        }
+      }
+
+      &.on {
+        opacity: 1;
+        transform: translate3d(0px, 0, 0);
+
+        .project-txt {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+
+          .project-txt-content {
+            &:after {
+              transform: translate3d(100%, 0, 0);
+            }
+
+            .category:after {
+              width: calc(100% + 3rem);
+            }
+          }
+        }
+
+        .project-visual {
+          .mask:after {
+            transform: translate3d(100%, 0, 0);
+          }
+        }
+      }
+    }
+  }
+}
+
+.slide-content {
+}
