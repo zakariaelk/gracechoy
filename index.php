@@ -26,14 +26,6 @@
 
 <body id="home">
 
-    <!-- Loading Page -->
-    <div id="loader">
-        <div class="loader-content">
-            <!-- <img class="loader-logo" src="src/img/svg/logo-dark.svg" alt="CanLife" /> -->
-            <!-- <div class="progress" id="progress"></div> -->
-        </div>
-    </div>
-
     <div class="site-wrapper">
         <header>
             <!-- Top Header -->
